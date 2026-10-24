@@ -1,0 +1,54 @@
+import Link from "next/link";
+import { site } from "@/config/site";
+
+export function Footer() {
+  return (
+    <footer className="on-dark bg-maroon-deep text-ivory">
+      <div className="container-page grid gap-12 py-20 md:grid-cols-[2fr_1fr_1fr] md:py-24">
+        <div>
+          <Link href="/" className="font-serif text-3xl tracking-[0.24em] uppercase">
+            {site.name}
+          </Link>
+          <p className="mt-5 max-w-xs leading-relaxed text-ivory/70">
+            Wedding photography in {site.location}.
+          </p>
+        </div>
+
+        <div>
+          <h2 className="eyebrow text-sand">Explore</h2>
+          <ul className="mt-5 space-y-3">
+            {site.nav.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-ivory/80 transition-colors duration-200 hover:text-ivory">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="eyebrow text-sand">Follow</h2>
+          <a
+            href={site.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block text-ivory/80 transition-colors duration-200 hover:text-ivory"
+          >
+            Instagram <span aria-hidden="true">↗</span>
+          </a>
+          <p className="mt-2 text-sm text-ivory/60">{site.instagram.handle}</p>
+        </div>
+      </div>
+
+      <div className="container-page flex flex-col gap-3 border-t border-ivory/15 py-6 text-sm text-ivory/60 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {site.name}. All rights reserved.
+        </p>
+        <a href="#top" className="transition-colors duration-200 hover:text-ivory">
+          Back to top <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+    </footer>
+  );
+}

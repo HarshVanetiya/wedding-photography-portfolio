@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/fix-static-export.mjs",
     "start": "npx serve@14 out",
     "lint": "eslint",
     "images": "node scripts/prepare-images.mjs"

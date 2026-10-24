@@ -88,6 +88,8 @@ The client's own Instagram posts use two framing colors around their photos, plu
 
 The proportions follow the reference: about 90% ivory/paper/sand, about 8% ink and under 2% maroon. Maroon is never used for large fills except the final dark band.
 
+Focus rings are maroon on light backgrounds, sand on the dark sections, and ivory over photographs, so keyboard focus is always visible.
+
 ### Typography (Google Fonts via `next/font`)
 
 The reference fonts are commercial, so we pair free fonts that match their feel:
@@ -103,7 +105,10 @@ Scale (desktop → mobile): hero 104 → 56px, h2 56 → 36px, h3 28 → 22px, b
 - **Photos dominate.** There is no text on top of gallery images. Corners are square and there are no shadows, as in the reference.
 - **Tight gutters** in galleries (4px desktop, 2px mobile) echo the reference's 2px hero grid. Generous whitespace (`py-28`–`py-40`) goes around sections instead.
 - **Justified gallery layout.** Rows share a height and each image keeps its true aspect ratio. Unlike CSS-column masonry, the reading order stays left-to-right, which keeps keyboard and lightbox order intuitive. It needs no JS layout, so there is no layout shift.
-- **Hover:** the image scales to 1.04 over 900ms and a 12% ink overlay fades in. On touch devices nothing happens.
+- **Hover:** the image scales to 1.04 over 900ms and a 15% ink overlay fades in. On touch devices nothing happens.
+- **Gallery ending:** a sand "Every story, in full" tile closes the gallery. It fills whatever space the last row leaves, so no photo sits stranded at the end at any screen width.
+- **Story pages:** consecutive portraits pair up at equal height, and landscapes get a row to themselves, giving an editorial rhythm.
+- **Hero on phones:** the hero is 92% of the screen height, so the keyword ticker peeks in as a cue to scroll. On wider screens the text sits in a low band, title left and tagline right, so faces in the photo stay clear.
 
 ### Motion system
 
@@ -125,7 +130,7 @@ Rules:
 
 1. **Hero.** Full-screen slideshow with a slow Ken Burns zoom (scale 1 → 1.08 over 7s) and a 1.2s crossfade. The studio name rises in line by line through a mask.
 2. **Gallery reveal.** Inspired by the reference's scroll-linked hero, the section heading's two halves drift apart slightly with scroll. Tiles then unveil row by row with a clip-path wipe and a scale settle (1.08 → 1), staggered.
-3. **Lightbox.** The clicked tile expands into a full-screen view. It supports keyboard (← → Esc), swipe on touch, and shows a counter (e.g. "04 / 14").
+3. **Lightbox.** The clicked photo grows out of its tile into a full-screen view, and shrinks back into the tile when closed. It supports keyboard (← → Esc), swipe on touch, and shows a counter (e.g. "04 / 13").
 
 Supporting motion, kept subtle:
 - **Navbar:** transparent → ivory on scroll.

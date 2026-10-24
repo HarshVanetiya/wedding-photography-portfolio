@@ -100,7 +100,7 @@ function NextStory({ story }: { story: Story }) {
   return (
     <Link
       href={`/stories/${story.slug}`}
-      className="group relative flex h-[70svh] min-h-[26rem] items-center justify-center overflow-hidden bg-maroon-deep text-center text-ivory"
+      className="on-photo group relative flex h-[70svh] min-h-[26rem] items-center justify-center overflow-hidden bg-maroon-deep text-center text-ivory focus-visible:-outline-offset-8"
     >
       <Photo
         slug={story.cover}

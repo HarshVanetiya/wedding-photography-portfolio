@@ -17,7 +17,7 @@ export function Hero() {
   const showSlideshow = !heroVideoSrc && !reduceMotion;
 
   return (
-    <section aria-label="Introduction" className="relative h-[92svh] min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory md:h-svh">
+    <section aria-label="Introduction" className="on-photo relative h-[92svh] min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory md:h-svh">
       {heroVideoSrc ? (
         <HeroVideo src={heroVideoSrc} paused={paused || reduceMotion} />
       ) : (
@@ -31,7 +31,7 @@ export function Hero() {
       />
 
       {/* Text sits in a low band so faces in the upper half of each photo stay clear. */}
-      <div className="container-page relative flex h-full flex-col justify-end pb-24 md:flex-row md:items-end md:justify-between md:gap-12 md:pb-28">
+      <div className="container-page relative flex h-full flex-col justify-end pb-24 md:pb-28 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
         <div>
           <p className="eyebrow animate-[fade-up_1s_var(--ease-out-quint)_0.2s_both]">{hero.eyebrow}</p>
           <h1 className="mt-4 flex flex-wrap gap-x-[0.25em] font-serif text-[clamp(3.5rem,9vw,8rem)] leading-[0.95] font-light tracking-[0.04em] uppercase">
@@ -47,8 +47,8 @@ export function Hero() {
             ))}
           </h1>
         </div>
-        <div className="md:max-w-sm md:pb-3">
-          <p className="mt-5 text-lg/relaxed text-ivory/90 animate-[fade-up_1s_var(--ease-out-quint)_0.8s_both] md:mt-0">
+        <div className="max-w-md lg:max-w-sm lg:pb-3">
+          <p className="mt-5 text-lg/relaxed text-ivory/90 animate-[fade-up_1s_var(--ease-out-quint)_0.8s_both] lg:mt-0">
             {hero.tagline}
           </p>
           <div className="mt-8 animate-[fade-up_1s_var(--ease-out-quint)_1s_both]">

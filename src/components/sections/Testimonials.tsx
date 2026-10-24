@@ -16,11 +16,11 @@ export function Testimonials() {
           {site.testimonials.map((testimonial, i) => (
             <li key={i}>
               <Reveal delay={i * 0.12} className="h-full">
-                <figure className="flex h-full flex-col border border-line bg-paper p-8 md:p-10">
+                <figure className="flex h-full flex-col border border-line bg-paper p-8 md:p-7 lg:p-10">
                   <span aria-hidden="true" className="font-serif text-6xl leading-none text-sand">
                     &ldquo;
                   </span>
-                  <blockquote className="mt-2 flex-1 font-serif text-2xl leading-snug font-light text-ink/80 italic">
+                  <blockquote className="mt-2 flex-1 font-serif text-2xl leading-snug font-light text-ink/80 italic md:text-xl lg:text-2xl">
                     {testimonial.quote}
                   </blockquote>
                   <figcaption className="mt-10 border-t border-line pt-6">

@@ -65,6 +65,12 @@
     outline-color: var(--color-sand);
   }
 
+  /* Over photographs the maroon ring disappears; ivory stays visible. */
+  .on-photo :focus-visible,
+  .on-photo:focus-visible {
+    outline-color: var(--color-ivory);
+  }
+
   dialog {
     max-width: none;
     max-height: none;

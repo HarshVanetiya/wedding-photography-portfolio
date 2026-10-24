@@ -28,7 +28,7 @@ export function Navbar() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-40 border-b transition-[background-color,color,border-color] duration-500 ease-out-quint",
-          solid ? "border-line bg-ivory/90 text-ink backdrop-blur-md" : "border-transparent bg-transparent text-ivory",
+          solid ? "border-line bg-ivory/90 text-ink backdrop-blur-md" : "on-photo border-transparent bg-transparent text-ivory",
         )}
       >
         <nav aria-label="Main" className="container-page flex h-18 items-center justify-between">

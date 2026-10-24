@@ -1,0 +1,209 @@
+{
+  "bride-entrance-floral-canopy": {
+    "src": "/images/bride-entrance-floral-canopy",
+    "width": 3271,
+    "height": 4096,
+    "alt": "Smiling bride in a red lehenga walking beneath a floral canopy held up by family members",
+    "category": "ceremony",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440,
+      1920,
+      2560
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JZACdMoAltBenA+evkv9qNYdVHgAA/u1JYghN+ubUOccrUtQ4sEglZ0x4Xvc8mo1NGbnu6UAGIcgJiwr3mO101PYmLMJRgiKSEz26NAWUaqkHLF6xkKmYrhkqVFdHPuThqA4dya2Ni+8BL79SODyLV9PDrlKwZHpj8sQftwAAAA=="
+  },
+  "ceremony-pheras-sacred-fire": {
+    "src": "/images/ceremony-pheras-sacred-fire",
+    "width": 3271,
+    "height": 4096,
+    "alt": "Bride and groom taking the pheras around the sacred fire at their wedding mandap",
+    "category": "ceremony",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440,
+      1920,
+      2560
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYgCdBagBoLrjXXJcW5jF4kAA/urEOqXj5H1Fv0D/MxDSCVveAHzcz/IYGMIJe2lua3VSrOgQZ39OlY7cDjZuD97arS9YyksO3ykBUzGPT4JEdXmxHexjuWW9Ee0NeaDPIo+wHOuJjzrrAAA="
+  },
+  "ceremony-mandap-wide": {
+    "src": "/images/ceremony-mandap-wide",
+    "width": 3271,
+    "height": 2536,
+    "alt": "Wide view of a mandap decorated with red roses and white floral strings as the couple sits before the sacred fire",
+    "category": "ceremony",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440,
+      1920,
+      2560
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAQAgCdASoQAAwAA4BaJagCdAEN3i4JuKsAAP5puPij8NzM3gLPWmk5vuizHdYQLjFL3FnRd3yQw6tgpITUfnS7jJTy82iQdEpVJsHQXNp5QL6amu296cFcLysAAA=="
+  },
+  "bride-garden-canopy": {
+    "src": "/images/bride-garden-canopy",
+    "width": 1440,
+    "height": 1800,
+    "alt": "Bride in a red embroidered lehenga seen from behind, framed by a canopy of green leaves in a sunlit garden",
+    "category": "bridal",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZACdAB58rCYo/FeCadQAAP7u3qF94K7uIgQv1WFUaBYrn/6ytZsVHeV9I+qZahm0SD0n5bWASrvOuS086ktlyvpYzAAiRPwoQ0G1OztJKi2unNzWD8ibwdfos9yA2+CSlu7TGFliOjUJ2vElBLgAAAA="
+  },
+  "couple-lakeside-golden-hour": {
+    "src": "/images/couple-lakeside-golden-hour",
+    "width": 1440,
+    "height": 1800,
+    "alt": "Couple laughing together on a stone ghat by the lake at golden hour, with birds and a white lake palace behind them",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABQAPu1oqk6ppiQiMAgBMB2JYwAAW+vhOJJXo/65HrLoAP7xxR4exBy/Dr/6hoNH5mARo7gaFyTuHAKWDc0kZSqGGq312ZMZGv7gXA23yFmzk9zMYhozZYa+txM5TlNxxSwAAAA="
+  },
+  "couple-pavilion-dance-bw": {
+    "src": "/images/couple-pavilion-dance-bw",
+    "width": 1440,
+    "height": 957,
+    "alt": "Black-and-white photo of a couple dancing beneath the carved arches of a lakeside pavilion",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1440
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAsAA4BaJaQAAuPuVR1UfAAA/teNnL85DAb7VdpDeFOOrNEOOxZoHRUu3H29r30M5PsbnjcvqDoBGne9SxeD2PrcL83QcdBJKoqvBfTkGgSZMZthgAAA"
+  },
+  "couple-white-scalloped-arch": {
+    "src": "/images/couple-white-scalloped-arch",
+    "width": 774,
+    "height": 1345,
+    "alt": "Couple in white traditional outfits gazing at each other beneath a scalloped Rajasthani arch",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      774
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwBACdASoQABwAPu1kqU2ppaQiMAgBMB2JZwDCgCHh2t4dJIym/4NeFwAA/t64XjX3MgGZ5JtMyMcX9rHsyF8fHjrupusJKAxZ6FjHr+qHd1hcQDT31JFaUNEFUdaJHNBCCHqy/VDjsnpZs2/KjvJcBhs4KiQgFyhwNAAA"
+  },
+  "couple-white-pavilion-dance": {
+    "src": "/images/couple-white-pavilion-dance",
+    "width": 1072,
+    "height": 713,
+    "alt": "Couple in white twirling together inside a white marble pavilion by the water",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1072
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAsAA4BaJZwAAp0uOBMm4AD+88xbEj7cPD7U2/hgezg/AxvQqDWddOxC8BYIAn5OmN7hAAA="
+  },
+  "couple-white-palace-steps": {
+    "src": "/images/couple-white-palace-steps",
+    "width": 1403,
+    "height": 1756,
+    "alt": "Groom leading his partner by the hand down the steps of a white palace courtyard",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1080,
+      1403
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZQAAWOr+DLuFXzwAAP7tg18pt4in5iIAuNaGZsBYWhydvaszywvWMGUCw8xDfRhX3JFcBe5MyoeTQHrec2KOZn0dOBIiX8f73wC2P5KRW47+gDZpQWjX+XoAAA=="
+  },
+  "couple-boat-day": {
+    "src": "/images/couple-boat-day",
+    "width": 947,
+    "height": 629,
+    "alt": "Couple dressed in black standing on a wooden boat on a misty lake",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      947
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAsAA4BaJYwAApIBLvxuQAD+hitJ3NvUeKzA8WlTd8Vzf5Lt+KaaIFZKm0a7TF6xPEc6K1w0Ft1kOs/PUODxq+9QuB0PntwFHIAA"
+  },
+  "couple-boat-dusk": {
+    "src": "/images/couple-boat-dusk",
+    "width": 947,
+    "height": 628,
+    "alt": "Couple posing on a wooden boat at dusk as a flock of birds crosses the sky",
+    "category": "couple",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      947
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAsAA4BaJZQAAudaV7lAAAD+9FN4XBX0clLDLe10MUqQfIyzmnfPPFWwQ/kvUkDU6rQA"
+  },
+  "detail-hands-engagement-ring": {
+    "src": "/images/detail-hands-engagement-ring",
+    "width": 886,
+    "height": 589,
+    "alt": "Close-up of a couple holding hands, her engagement ring and gold bracelet against a pale sky",
+    "category": "details",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      886
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAsAA4BaJQBOgCG5HCXfrgAA/vfp3yWa2b3tKygbk+Dif0imZfjMIRnqj/G//1+CLWr08M+may66nLYTur4k7CRkSB+Ok91E/wAA"
+  },
+  "detail-hands-ring-watch": {
+    "src": "/images/detail-hands-ring-watch",
+    "width": 1075,
+    "height": 715,
+    "alt": "Close-up of a couple's joined hands, her diamond ring and gold watch against white embroidered fabric",
+    "category": "details",
+    "widths": [
+      256,
+      384,
+      640,
+      828,
+      1075
+    ],
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAsAA4BaJQBOgCFsom2cYhgA/vOBB/DFT3ShD8Hc0Jssg9CAzJnqOnk7hffEsOV4l1aYo9kyT6h3tD8AAA=="
+  }
+}

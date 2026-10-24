@@ -17,7 +17,7 @@ export function Hero() {
   const showSlideshow = !heroVideoSrc && !reduceMotion;
 
   return (
-    <section aria-label="Introduction" className="relative h-svh min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory">
+    <section aria-label="Introduction" className="relative h-[92svh] min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory md:h-svh">
       {heroVideoSrc ? (
         <HeroVideo src={heroVideoSrc} paused={paused || reduceMotion} />
       ) : (
@@ -131,7 +131,8 @@ function HeroSlideshow({ paused }: { paused: boolean }) {
                 alt=""
                 fill
                 sizes="100vw"
-                preload={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
                 className="object-cover object-(--pos-mobile) md:object-(--pos-desktop)"
                 style={{ "--pos-mobile": slide.position.mobile, "--pos-desktop": slide.position.desktop } as React.CSSProperties}
               />

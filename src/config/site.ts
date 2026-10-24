@@ -146,8 +146,8 @@ export const site = {
       couple: "Couple Name",
       venue: "Venue, Udaipur",
       type: "Pre-Wedding",
-      cover: "couple-white-scalloped-arch",
-      coverPosition: { desktop: "50% 45%", mobile: "50% 50%" },
+      cover: "couple-white-palace-steps",
+      coverPosition: { desktop: "50% 42%", mobile: "58% 50%" },
       excerpt: "White on white, framed by scalloped arches and palace steps.",
       intro:
         "Dressed in ivory against white marble — a pre-wedding shoot shaped by Udaipur's architecture. Scalloped arches, palace steps and a slow twirl in a lakeside pavilion.",

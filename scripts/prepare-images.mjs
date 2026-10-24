@@ -41,7 +41,7 @@ async function buildPhoto(photo) {
     widths.map((w) =>
       sharp(buffer)
         .resize({ width: w })
-        .webp({ quality: 78, effort: 5 })
+        .webp({ quality: 72, effort: 6 })
         .toFile(path.join(OUT_DIR, `${photo.slug}-${w}.webp`)),
     ),
   );

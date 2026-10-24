@@ -162,7 +162,7 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
         close();
       }}
     >
-      <div ref={backdropRef} className="absolute inset-0 bg-[#140909]/95 opacity-0" />
+      <div ref={backdropRef} className="absolute inset-0 bg-[#140909]/[0.98] opacity-0" />
 
       <div
         ref={stageRef}
@@ -228,7 +228,7 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
         </div>
 
         {count > 1 && (
-          <div className="absolute inset-x-0 bottom-6 flex justify-center gap-4 md:inset-y-0 md:bottom-auto md:items-center md:justify-between md:px-8">
+          <div className="absolute inset-x-0 bottom-6 flex justify-center gap-4 md:inset-y-0 md:items-center md:justify-between md:px-8">
             <NavButton label="Previous photo" onClick={() => go(-1)} flip />
             <NavButton label="Next photo" onClick={() => go(1)} />
           </div>

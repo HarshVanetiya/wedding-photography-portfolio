@@ -1,16 +1,7 @@
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
-
-/** Placeholder values like "[Phone]" render as plain text until real details are added. */
-function ContactValue({ value, href }: { value: string; href: string }) {
-  if (value.startsWith("[")) return <span>{value}</span>;
-  return (
-    <a href={href} className="transition-colors duration-200 hover:text-maroon">
-      {value}
-    </a>
-  );
-}
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export function Contact() {
   const { contact, instagram } = site;
@@ -24,20 +15,22 @@ export function Contact() {
             Let&apos;s tell <em className="text-maroon">your</em> story
           </h2>
           <p className="body-copy mt-6 max-w-md">
-            Share a few details about your celebration and we&apos;ll be in touch to talk dates, ideas and how we can help.
+            Share a few details about your celebration. They&apos;ll open in WhatsApp, ready to send, and we&apos;ll
+            continue the conversation there.
           </p>
 
           <dl className="mt-12 grid gap-6 border-t border-line pt-10">
             <div>
-              <dt className="eyebrow text-ink-muted">Phone</dt>
+              <dt className="eyebrow text-ink-muted">WhatsApp</dt>
               <dd className="mt-2 text-lg">
-                <ContactValue value={contact.phone} href={`tel:${contact.phone.replace(/\s/g, "")}`} />
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow text-ink-muted">Email</dt>
-              <dd className="mt-2 text-lg">
-                <ContactValue value={contact.email} href={`mailto:${contact.email}`} />
+                <a
+                  href={whatsappUrl(contact.messages.enquiry)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors duration-200 hover:text-maroon"
+                >
+                  {contact.whatsappDisplay}
+                </a>
               </dd>
             </div>
             <div>

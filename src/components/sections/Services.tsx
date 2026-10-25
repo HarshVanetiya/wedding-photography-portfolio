@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
+import { serviceEnquiryUrl } from "@/lib/whatsapp";
 
 export function Services() {
   return (
@@ -32,10 +33,12 @@ export function Services() {
                 <h3 className="mt-6 font-serif text-3xl font-light md:text-4xl">{service.title}</h3>
                 <p className="body-copy mt-5 max-w-2xl">{service.description}</p>
                 <a
-                  href="#contact"
+                  href={serviceEnquiryUrl(service.title)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="eyebrow mt-8 inline-flex items-center gap-2 border-b border-ink/25 pb-1.5 transition-colors duration-300 hover:border-maroon hover:text-maroon"
                 >
-                  Enquire <span className="sr-only">about {service.title}</span>
+                  Enquire <span className="sr-only">about {service.title} on WhatsApp</span>
                   <span aria-hidden="true">→</span>
                 </a>
               </Reveal>

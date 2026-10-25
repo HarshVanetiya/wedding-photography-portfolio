@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/config/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -28,7 +29,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="eyebrow text-sand">Follow</h2>
+          <h2 className="eyebrow text-sand">Connect</h2>
           <a
             href={site.instagram.url}
             target="_blank"
@@ -38,6 +39,15 @@ export function Footer() {
             Instagram <span aria-hidden="true">↗</span>
           </a>
           <p className="mt-2 text-sm text-ivory/60">{site.instagram.handle}</p>
+          <a
+            href={whatsappUrl(site.contact.messages.enquiry)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-block text-ivory/80 transition-colors duration-200 hover:text-ivory"
+          >
+            WhatsApp <span aria-hidden="true">↗</span>
+          </a>
+          <p className="mt-2 text-sm text-ivory/60">{site.contact.whatsappDisplay}</p>
         </div>
       </div>
 

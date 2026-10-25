@@ -27,7 +27,7 @@ All editable content lives in **[src/config/site.ts](src/config/site.ts)**:
 | --- | --- |
 | Studio name, live URL, SEO description | `name`, `url`, `description` |
 | Instagram handle and link | `instagram` |
-| Phone, email, address | `contact` (placeholder values in `[brackets]` render as plain text) |
+| WhatsApp number, pre-filled messages, address | `contact` |
 | Navigation links | `nav` |
 | Hero video, slideshow photos, tagline, button | `heroVideoSrc`, `heroVideoPoster`, `hero` |
 | Keyword ticker | `ticker` |
@@ -37,6 +37,8 @@ All editable content lives in **[src/config/site.ts](src/config/site.ts)**:
 | Services | `services` |
 | Testimonials | `testimonials` |
 | Instagram strip photos | `instagramStrip` |
+
+Enquiries go to **WhatsApp**. The contact form, the About button, each service's "Enquire" link and the footer all open a chat with `contact.whatsapp`, with the message pre-filled. The form adds the visitor's name, wedding date, venue and message. To change the number or the wording, edit `contact` in `site.ts`.
 
 Photos are referenced by **slug**, for example `"bride-garden-canopy"`. A mistyped slug fails `npm run build` and the type checker, so a broken image can't ship by accident.
 
@@ -96,11 +98,9 @@ Originals live in `attachments/` and are never modified. `npm run images` builds
 
 ## Before launch: placeholders to replace
 
-- [ ] Phone and email in `contact` (currently `[Phone]` and `[Email]`)
 - [ ] Testimonials: real client words, names and weddings
 - [ ] Story couple names and venues (currently `Couple Name · Venue, Udaipur`)
 - [ ] `url`: the live domain
-- [ ] Contact form backend. The form currently shows a success message without sending anything. Connect a service such as Formspree or Web3Forms in [ContactForm.tsx](src/components/sections/ContactForm.tsx).
 - [ ] Review the About, Services and story copy with the client
 - [ ] Higher-resolution originals and more photos (most current files are 1440px Instagram exports)
 - [ ] Hero video, when ready

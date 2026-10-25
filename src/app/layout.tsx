@@ -49,6 +49,7 @@ const jsonLd = {
   description: site.description,
   url: site.url,
   image: `${site.url}/og.jpg`,
+  telephone: `+${site.contact.whatsapp}`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Udaipur",

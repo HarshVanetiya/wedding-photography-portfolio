@@ -37,9 +37,15 @@ export const site = {
   },
 
   contact: {
-    phone: "[Phone]",
-    email: "[Email]",
+    // WhatsApp number with country code, digits only. Every enquiry opens a chat with it.
+    whatsapp: "917877172479",
+    whatsappDisplay: "+91 78771 72479",
     address: "Udaipur, Rajasthan, India",
+    // Pre-filled WhatsApp messages. {service} is replaced with the service name.
+    messages: {
+      enquiry: "Hi RJ Studio! I'd like to enquire about photography for our wedding.",
+      service: "Hi RJ Studio! I'm interested in {service}. Could you share more details?",
+    },
   },
 
   nav: [
@@ -88,7 +94,8 @@ export const site = {
       "We believe the most beautiful photographs aren't posed; they're felt. A grandmother's blessing, a stolen glance during the pheras, the hush before the varmala. We work quietly and closely, letting your day unfold naturally, and shape every frame into a story you'll return to for a lifetime.",
     ],
     photo: slug("bride-garden-canopy"),
-    cta: { label: "Start your story", href: "#contact" },
+    // Opens WhatsApp with contact.messages.enquiry.
+    cta: { label: "Start your story" },
   },
 
   work: {

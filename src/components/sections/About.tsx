@@ -1,6 +1,7 @@
 import { Photo } from "@/components/ui/Photo";
 import { Reveal, RevealImage } from "@/components/ui/Reveal";
 import { site } from "@/config/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export function About() {
   const { about } = site;
@@ -26,10 +27,13 @@ export function About() {
           ))}
           <Reveal delay={0.3}>
             <a
-              href={about.cta.href}
+              href={whatsappUrl(site.contact.messages.enquiry)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="eyebrow mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 transition-colors duration-300 hover:border-maroon hover:text-maroon"
             >
-              {about.cta.label} <span aria-hidden="true">→</span>
+              {about.cta.label} <span className="sr-only">on WhatsApp</span>
+              <span aria-hidden="true">→</span>
             </a>
           </Reveal>
         </div>

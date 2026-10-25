@@ -5,7 +5,7 @@ import { site, type Story } from "@/config/site";
 
 export function Stories() {
   return (
-    <section id="stories" aria-labelledby="stories-heading" className="bg-ivory py-28 md:py-40">
+    <section id="stories" aria-labelledby="stories-heading" className="bg-ivory py-20 md:py-40">
       <div className="container-page">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal>
@@ -19,15 +19,19 @@ export function Stories() {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid gap-y-16 md:mt-20 md:grid-cols-3 md:gap-x-8">
+        {/* Phones: a swipeable row with the next card peeking in. Larger screens: a staggered grid. */}
+        <ul className="-mx-5 mt-12 scroll-px-5 gap-4 px-5 max-md:swipe-row md:mx-0 md:mt-20 md:grid md:grid-cols-3 md:gap-x-8 md:px-0">
           {site.stories.map((story, i) => (
-            <li key={story.slug} className="md:even:mt-24">
+            <li key={story.slug} className="w-[82%] shrink-0 snap-start md:w-auto md:even:mt-24">
               <Reveal delay={i * 0.12}>
                 <StoryCard story={story} index={i} />
               </Reveal>
             </li>
           ))}
         </ul>
+        <p aria-hidden="true" className="eyebrow mt-8 text-ink-muted md:hidden">
+          Swipe for more <span>→</span>
+        </p>
       </div>
     </section>
   );
@@ -40,8 +44,8 @@ function StoryCard({ story, index }: { story: Story; index: number }) {
         <Photo
           slug={story.cover}
           fill
-          sizes="(min-width: 768px) 31vw, 100vw"
-          className="object-cover transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
+          sizes="(min-width: 768px) 31vw, 82vw"
+          className="object-cover transition-[scale,opacity] duration-[1200ms] ease-out-quint group-hover:scale-[1.04] group-active:opacity-85"
         />
       </div>
       <p className="eyebrow mt-6 text-ink-muted">

@@ -94,9 +94,26 @@ export function ContactForm() {
         </m.div>
       ) : (
         <m.form key="form" {...fade} noValidate onSubmit={onSubmit} className="grid gap-x-8 gap-y-9 sm:grid-cols-2">
-          <Field name="name" label="Your name" autoComplete="name" defaultValue={values.name} required error={nameError} />
+          <Field
+            name="name"
+            label="Your name"
+            autoComplete="name"
+            autoCapitalize="words"
+            enterKeyHint="next"
+            defaultValue={values.name}
+            required
+            error={nameError}
+          />
           <Field name="date" label="Wedding date" type="date" defaultValue={values.date} optional />
-          <Field name="venue" label="Venue" defaultValue={values.venue} optional className="sm:col-span-2" />
+          <Field
+            name="venue"
+            label="Venue"
+            autoCapitalize="words"
+            enterKeyHint="next"
+            defaultValue={values.venue}
+            optional
+            className="sm:col-span-2"
+          />
           <Field
             name="message"
             label="Tell us about your celebration"
@@ -123,6 +140,8 @@ type FieldProps = {
   label: string;
   type?: string;
   autoComplete?: string;
+  autoCapitalize?: string;
+  enterKeyHint?: React.InputHTMLAttributes<HTMLInputElement>["enterKeyHint"];
   defaultValue: string;
   required?: boolean;
   optional?: boolean;
@@ -131,7 +150,20 @@ type FieldProps = {
   className?: string;
 };
 
-function Field({ name, label, type = "text", autoComplete, defaultValue, required, optional, multiline, error, className }: FieldProps) {
+function Field({
+  name,
+  label,
+  type = "text",
+  autoComplete,
+  autoCapitalize,
+  enterKeyHint,
+  defaultValue,
+  required,
+  optional,
+  multiline,
+  error,
+  className,
+}: FieldProps) {
   const id = `contact-${name}`;
   const errorId = `${id}-error`;
   const inputClass =
@@ -154,7 +186,14 @@ function Field({ name, label, type = "text", autoComplete, defaultValue, require
       {multiline ? (
         <textarea {...shared} rows={4} className={cn(inputClass, "resize-y")} />
       ) : (
-        <input {...shared} type={type} autoComplete={autoComplete} className={inputClass} />
+        <input
+          {...shared}
+          type={type}
+          autoComplete={autoComplete}
+          autoCapitalize={autoCapitalize}
+          enterKeyHint={enterKeyHint}
+          className={inputClass}
+        />
       )}
       {error && (
         <p id={errorId} className="mt-2 text-sm text-maroon">

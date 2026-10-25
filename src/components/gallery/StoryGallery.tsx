@@ -22,14 +22,15 @@ function toRows(photos: Photo[]) {
   return rows;
 }
 
+// Phones always show one full-width photo at a time; pairs only sit side by side from 768px.
 function rowSizes(row: Photo[]) {
   if (row.length === 1) {
     return isPortrait(row[0]) ? "(min-width: 640px) 576px, 100vw" : "(min-width: 1100px) 1024px, 100vw";
   }
   const total = row.reduce((sum, p) => sum + p.width / p.height, 0);
   return row.map((p) => {
-    const share = (p.width / p.height) / total;
-    return `(min-width: 1100px) ${Math.round(share * 1024)}px, ${Math.round(share * 100)}vw`;
+    const share = p.width / p.height / total;
+    return `(min-width: 1100px) ${Math.round(share * 1024)}px, (min-width: 768px) ${Math.round(share * 100)}vw, 100vw`;
   });
 }
 
@@ -48,10 +49,20 @@ export function StoryGallery({ slugs }: { slugs: PhotoSlug[] }) {
     <>
       <div ref={listRef} className="mx-auto flex max-w-5xl flex-col gap-3 md:gap-6">
         {rows.map((row) => (
-          <div key={row[0].slug} className={cn("flex gap-3 md:gap-6", row.length === 1 && isPortrait(row[0]) && "mx-auto w-full max-w-xl")}>
+          <div
+            key={row[0].slug}
+            className={cn(
+              "flex flex-col gap-3 md:flex-row md:gap-6",
+              row.length === 1 && isPortrait(row[0]) && "mx-auto w-full max-w-xl",
+            )}
+          >
             {row.map((photo) => (
-              // Equal-height pairs: each photo's width is proportional to its aspect ratio.
-              <div key={photo.slug} className="min-w-0" style={{ flex: `${photo.width / photo.height} 1 0%` }}>
+              // From 768px, equal-height pairs: each photo's width is proportional to its aspect ratio.
+              <div
+                key={photo.slug}
+                className="min-w-0 md:[flex:var(--ratio)_1_0%]"
+                style={{ "--ratio": photo.width / photo.height } as React.CSSProperties}
+              >
                 <GalleryTile
                   photo={photo}
                   sizes={thumbSizes(photo)}

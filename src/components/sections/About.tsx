@@ -7,9 +7,9 @@ export function About() {
   const { about } = site;
 
   return (
-    <section id="about" aria-labelledby="about-heading" className="bg-ivory py-28 md:py-40">
+    <section id="about" aria-labelledby="about-heading" className="bg-ivory py-20 md:py-40">
       <div className="container-page grid items-center gap-14 md:grid-cols-12 md:gap-10">
-        <RevealImage className="aspect-[4/5] md:col-span-5">
+        <RevealImage className="-mx-5 aspect-[4/5] md:col-span-5 md:mx-0">
           <Photo slug={about.photo} fill sizes="(min-width: 768px) 40vw, 100vw" className="object-cover" />
         </RevealImage>
 
@@ -30,7 +30,7 @@ export function About() {
               href={whatsappUrl(site.contact.messages.enquiry)}
               target="_blank"
               rel="noopener noreferrer"
-              className="eyebrow mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 transition-colors duration-300 hover:border-maroon hover:text-maroon"
+              className="eyebrow tap-target mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 transition-colors duration-300 hover:border-maroon hover:text-maroon"
             >
               {about.cta.label} <span className="sr-only">on WhatsApp</span>
               <span aria-hidden="true">→</span>

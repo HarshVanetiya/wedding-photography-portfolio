@@ -4,7 +4,7 @@ import { serviceEnquiryUrl } from "@/lib/whatsapp";
 
 export function Services() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="bg-sand-50 py-28 md:py-40">
+    <section id="services" aria-labelledby="services-heading" className="bg-sand-50 py-20 md:py-40">
       <div className="container-page">
         <div className="grid gap-6 md:grid-cols-12 md:items-end">
           <Reveal className="md:col-span-6">
@@ -20,7 +20,7 @@ export function Services() {
           </Reveal>
         </div>
 
-        <ol className="mt-16 grid border-t border-ink/15 md:mt-20 lg:grid-cols-3">
+        <ol className="mt-12 grid border-t border-ink/15 md:mt-20 lg:grid-cols-3">
           {site.services.map((service, i) => (
             <li
               key={service.title}
@@ -36,7 +36,7 @@ export function Services() {
                   href={serviceEnquiryUrl(service.title)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="eyebrow mt-8 inline-flex items-center gap-2 border-b border-ink/25 pb-1.5 transition-colors duration-300 hover:border-maroon hover:text-maroon"
+                  className="eyebrow tap-target mt-8 inline-flex items-center gap-2 border-b border-ink/25 pb-1.5 transition-colors duration-300 hover:border-maroon hover:text-maroon"
                 >
                   Enquire <span className="sr-only">about {service.title} on WhatsApp</span>
                   <span aria-hidden="true">→</span>

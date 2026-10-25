@@ -7,9 +7,15 @@ export function Contact() {
   const { contact, instagram } = site;
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="border-t border-line bg-ivory py-28 md:py-40">
-      <div className="container-page grid gap-16 md:grid-cols-12 md:gap-10">
-        <Reveal className="md:col-span-5">
+    <section
+      id="contact"
+      data-hide-enquire
+      aria-labelledby="contact-heading"
+      className="border-t border-line bg-ivory py-20 md:py-40"
+    >
+      {/* Phones read intro → form → details; larger screens put intro and details beside the form. */}
+      <div className="container-page grid gap-12 md:grid-cols-12 md:gap-x-10 md:gap-y-12">
+        <Reveal className="md:col-span-5 md:row-start-1 md:self-start">
           <p className="eyebrow text-ink-muted">Contact</p>
           <h2 id="contact-heading" className="heading-section mt-6">
             Let&apos;s tell <em className="text-maroon">your</em> story
@@ -18,8 +24,14 @@ export function Contact() {
             Share a few details about your celebration. They&apos;ll open in WhatsApp, ready to send, and we&apos;ll
             continue the conversation there.
           </p>
+        </Reveal>
 
-          <dl className="mt-12 grid gap-6 border-t border-line pt-10">
+        <Reveal delay={0.1} className="md:col-span-6 md:col-start-7 md:row-span-2 md:row-start-1 md:self-start">
+          <ContactForm />
+        </Reveal>
+
+        <Reveal className="md:col-span-5 md:row-start-2 md:self-start">
+          <dl className="grid gap-6 border-t border-line pt-10">
             <div>
               <dt className="eyebrow text-ink-muted">WhatsApp</dt>
               <dd className="mt-2 text-lg">
@@ -27,7 +39,7 @@ export function Contact() {
                   href={whatsappUrl(contact.messages.enquiry)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-200 hover:text-maroon"
+                  className="tap-target transition-colors duration-200 hover:text-maroon"
                 >
                   {contact.whatsappDisplay}
                 </a>
@@ -44,17 +56,13 @@ export function Contact() {
                   href={instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-200 hover:text-maroon"
+                  className="tap-target transition-colors duration-200 hover:text-maroon"
                 >
                   {instagram.handle}
                 </a>
               </dd>
             </div>
           </dl>
-        </Reveal>
-
-        <Reveal delay={0.1} className="md:col-span-6 md:col-start-7">
-          <ContactForm />
         </Reveal>
       </div>
     </section>

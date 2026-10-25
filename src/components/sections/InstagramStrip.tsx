@@ -7,7 +7,7 @@ export function InstagramStrip() {
   const { instagram, instagramStrip } = site;
 
   return (
-    <section aria-labelledby="instagram-heading" className="bg-paper py-28 md:py-36">
+    <section aria-labelledby="instagram-heading" className="bg-paper py-20 md:py-36">
       <div className="container-page flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <Reveal>
           <p className="eyebrow text-ink-muted">Instagram</p>
@@ -30,10 +30,10 @@ export function InstagramStrip() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`See more of our work on Instagram, ${instagram.handle}`}
-        className="mt-14 grid grid-cols-3 gap-1 px-1 focus-visible:outline-offset-[-2px] md:mt-16 md:grid-cols-6"
+        className="mt-10 grid grid-cols-3 gap-1 px-1 focus-visible:outline-offset-[-2px] md:mt-16 md:grid-cols-6"
       >
         {instagramStrip.map((slug) => (
-          <span key={slug} className="group relative block aspect-square overflow-hidden bg-sand-50">
+          <span key={slug} className="group relative block aspect-square overflow-hidden bg-sand-50 transition-opacity active:opacity-80">
             <Photo
               slug={slug}
               alt=""

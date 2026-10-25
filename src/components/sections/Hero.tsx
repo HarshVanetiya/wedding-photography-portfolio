@@ -17,7 +17,7 @@ export function Hero() {
   const showSlideshow = !heroVideoSrc && !reduceMotion;
 
   return (
-    <section aria-label="Introduction" className="on-photo relative h-[92svh] min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory md:h-svh">
+    <section data-hide-enquire aria-label="Introduction" className="on-photo relative h-[92svh] min-h-[34rem] overflow-hidden bg-maroon-deep text-ivory md:h-svh">
       {heroVideoSrc ? (
         <HeroVideo src={heroVideoSrc} paused={paused || reduceMotion} />
       ) : (
@@ -75,7 +75,7 @@ export function Hero() {
           type="button"
           onClick={() => setPaused((p) => !p)}
           aria-pressed={paused}
-          className="eyebrow absolute right-5 bottom-6 flex items-center gap-2 text-[0.625rem] text-ivory/80 hover:text-ivory md:right-10"
+          className="eyebrow tap-target absolute right-5 bottom-6 flex items-center gap-2 text-[0.625rem] text-ivory/80 hover:text-ivory md:right-10"
         >
           {paused ? <PlayIcon /> : <PauseIcon />}
           {paused ? "Play" : "Pause"}
@@ -130,7 +130,8 @@ function HeroSlideshow({ paused }: { paused: boolean }) {
                 slug={slide.slug}
                 alt=""
                 fill
-                sizes="100vw"
+                // 80vw on phones caps 3x screens at ~2.4x density: looks the same, ~40% lighter.
+                sizes="(max-width: 767px) 80vw, 100vw"
                 loading={i === 0 ? "eager" : "lazy"}
                 fetchPriority={i === 0 ? "high" : "auto"}
                 className="object-cover object-(--pos-mobile) md:object-(--pos-desktop)"

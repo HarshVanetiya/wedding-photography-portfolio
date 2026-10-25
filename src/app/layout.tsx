@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { FloatingEnquire } from "@/components/layout/FloatingEnquire";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { MotionProvider } from "@/components/providers/MotionProvider";
@@ -40,6 +41,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#f0efe8",
+  // Lets fixed elements use env(safe-area-inset-*) on notched phones.
+  viewportFit: "cover",
 };
 
 const jsonLd = {
@@ -73,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <main id="main">{children}</main>
           <Footer />
+          <FloatingEnquire />
         </MotionProvider>
         <script
           type="application/ld+json"

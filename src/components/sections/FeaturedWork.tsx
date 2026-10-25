@@ -7,7 +7,7 @@ export function FeaturedWork() {
   const { work } = site;
 
   return (
-    <section id="work" aria-labelledby="work-heading" className="overflow-hidden bg-paper py-28 md:py-40">
+    <section id="work" aria-labelledby="work-heading" className="overflow-hidden bg-paper py-20 md:py-40">
       <div className="container-page">
         <p className="eyebrow text-ink-muted">{work.eyebrow}</p>
         <div className="mt-8">
@@ -15,10 +15,11 @@ export function FeaturedWork() {
         </div>
         <Reveal className="mt-10 max-w-md md:mt-14">
           <p className="body-copy">{work.intro}</p>
+          <p className="eyebrow mt-5 hidden text-ink-muted pointer-coarse:block">Tap any photo to see it full screen</p>
         </Reveal>
       </div>
 
-      <div className="mx-auto mt-14 max-w-[1600px] px-1 md:mt-20 md:px-10">
+      <div className="mx-auto mt-10 max-w-[1600px] px-1 md:mt-20 md:px-10">
         <JustifiedGallery
           slugs={work.photos}
           label="Featured photographs"

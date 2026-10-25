@@ -2,10 +2,13 @@
 
 import { m, type Variants } from "motion/react";
 import Link from "next/link";
+import { buttonStyles } from "@/components/ui/button";
 import { Modal } from "@/components/ui/Modal";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { site } from "@/config/site";
 import { easeInOutQuint, easeOutQuint } from "@/lib/motion";
 import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 const panel: Variants = {
   hidden: { clipPath: "inset(0 0 100% 0)", transition: { duration: 0.7, ease: easeInOutQuint, delay: 0.15 } },
@@ -64,8 +67,21 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
           </ul>
         </nav>
 
-        <div className="container-page flex shrink-0 items-center justify-between pb-10 text-ivory/70">
-          <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="eyebrow hover:text-ivory">
+        <div className="container-page shrink-0 pb-8">
+          <a
+            href={whatsappUrl(site.contact.messages.enquiry)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className={buttonStyles("light", "w-full")}
+          >
+            <WhatsAppIcon />
+            Enquire on WhatsApp
+          </a>
+        </div>
+
+        <div className="container-page flex shrink-0 items-center justify-between pb-[max(2.5rem,env(safe-area-inset-bottom))] text-ivory/70">
+          <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="eyebrow tap-target hover:text-ivory">
             Instagram
           </a>
           <span className="eyebrow">{site.location}</span>

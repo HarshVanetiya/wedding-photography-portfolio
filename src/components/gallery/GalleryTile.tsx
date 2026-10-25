@@ -57,7 +57,7 @@ export function GalleryTile({ photo, sizes, delay = 0, onOpen, className }: Gall
       </m.span>
       <span
         aria-hidden="true"
-        className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15 group-focus-visible:bg-ink/25"
+        className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/15 group-focus-visible:bg-ink/25 group-active:bg-ink/25"
       />
       <span
         aria-hidden="true"

@@ -110,6 +110,20 @@ Scale (desktop → mobile): hero 104 → 56px, h2 56 → 36px, h3 28 → 22px, b
 - **Story pages:** consecutive portraits pair up at equal height, and landscapes get a row to themselves, giving an editorial rhythm.
 - **Hero on phones:** the hero is 92% of the screen height, so the keyword ticker peeks in as a cue to scroll. On wider screens the text sits in a low band, title left and tagline right, so faces in the photo stay clear.
 
+### Phones (most visitors)
+
+The desktop layout is the reference; phones get their own decisions rather than a squeezed version of it.
+
+- **WhatsApp within thumb reach.** From the About section onward, a floating "Enquire" pill sits bottom-right. It steps aside over the hero, at the contact form and in the footer, so it never doubles up with another call to action.
+- **More room for photos.** The navbar slides away while you scroll down and returns on any scroll up. The About photo runs edge to edge.
+- **Shorter page.** Stories and testimonials become swipeable rows with the next card peeking in, and section spacing is tighter. The home page went from 14.7 to 11.9 screens.
+- **Touch-first details.** Every small text link has a tap area of at least 44px. Taps give visible feedback, since hover never fires on touch. Gallery thumbnails carry a "Tap any photo" hint.
+- **Lightbox gestures.** Swipe sideways to page through photos, or pull down to close; the backdrop fades as you pull.
+- **Story pages** stack every photo full width instead of pairing small portraits.
+- **Contact** puts the form straight after the intro, before the contact details.
+- **Lighter hero.** On 3x screens the hero loads a 1080px photo instead of 1440px. That's about 40% less data, with no visible difference.
+- **Notch-safe.** The page content, the floating button, the menu and the lightbox controls all respect safe-area insets.
+
 ### Motion system
 
 | Token | Value | Use |

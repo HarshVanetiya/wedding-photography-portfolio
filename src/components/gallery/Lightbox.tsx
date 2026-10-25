@@ -1,6 +1,6 @@
 "use client";
 
-import { animate, AnimatePresence, m, useMotionValue, type Variants } from "motion/react";
+import { animate, AnimatePresence, m, useMotionValue, useTransform, type Variants } from "motion/react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Photo } from "@/components/ui/Photo";
 import { easeInOutQuint, easeOutQuint } from "@/lib/motion";
@@ -55,9 +55,12 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
   const stageRef = useRef<HTMLDivElement>(null);
   const chromeRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const swipe = useRef<{ x: number; y: number; axis: "x" | "y" | null } | null>(null);
   const closing = useRef(false);
   const dragX = useMotionValue(0);
+  const dragY = useMotionValue(0);
+  // Pulling the photo down fades the backdrop, hinting that letting go will close.
+  const backdropFade = useTransform(dragY, [0, 320], [1, 0.35]);
   const reduceMotion = usePrefersReducedMotion();
 
   const [index, setIndex] = useState(startIndex);
@@ -114,6 +117,8 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
     const fade = { duration: 0.45, ease: easeInOutQuint };
 
     await Promise.all([
+      animate(dragX, 0, fade),
+      animate(dragY, 0, fade),
       animate(chromeRef.current!, { opacity: 0 }, { duration: 0.25 }),
       animate(backdropRef.current!, { opacity: 0 }, { ...fade, duration: 0.6 }),
       reduceMotion || !tileVisible
@@ -122,31 +127,44 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
     ]);
     dialogRef.current?.close();
     onClose();
-  }, [frame, getTileRect, index, onClose, reduceMotion, viewport]);
+  }, [dragX, dragY, frame, getTileRect, index, onClose, reduceMotion, viewport]);
 
   function onKeyDown(event: React.KeyboardEvent) {
     if (event.key === "ArrowRight") go(1);
     else if (event.key === "ArrowLeft") go(-1);
   }
 
-  // Touch swipe: the photo follows the finger a little, then pages on release.
+  // Touch gestures: swipe sideways to page, pull down to close. The photo follows the finger,
+  // locked to whichever axis the gesture starts on.
   function onPointerDown(event: React.PointerEvent) {
     if (event.pointerType === "mouse") return;
-    swipeStart.current = { x: event.clientX, y: event.clientY };
+    swipe.current = { x: event.clientX, y: event.clientY, axis: null };
   }
 
   function onPointerMove(event: React.PointerEvent) {
-    if (swipeStart.current) dragX.set((event.clientX - swipeStart.current.x) * 0.5);
-  }
-
-  function onPointerEnd(event: React.PointerEvent) {
-    const start = swipeStart.current;
-    swipeStart.current = null;
+    const start = swipe.current;
     if (!start) return;
     const dx = event.clientX - start.x;
     const dy = event.clientY - start.y;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
-    animate(dragX, 0, { duration: 0.4, ease: easeOutQuint });
+    if (!start.axis && Math.max(Math.abs(dx), Math.abs(dy)) > 10) start.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+    if (start.axis === "x") dragX.set(dx * 0.5);
+    else if (start.axis === "y") dragY.set(Math.max(0, dy) * 0.7);
+  }
+
+  function onPointerEnd(event: React.PointerEvent) {
+    const start = swipe.current;
+    swipe.current = null;
+    if (!start?.axis) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (start.axis === "y" && dy > 110) {
+      close();
+      return;
+    }
+    if (start.axis === "x" && Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    const settle = { duration: 0.4, ease: easeOutQuint };
+    animate(dragX, 0, settle);
+    animate(dragY, 0, settle);
   }
 
   const neighbours = count > 1 ? [photos[(index + 1) % count], photos[(index - 1 + count) % count]] : [];
@@ -162,11 +180,13 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
         close();
       }}
     >
-      <div ref={backdropRef} className="absolute inset-0 bg-[#140909]/[0.98] opacity-0" />
+      <m.div className="absolute inset-0" style={{ opacity: backdropFade }}>
+        <div ref={backdropRef} className="absolute inset-0 bg-[#140909]/[0.98] opacity-0" />
+      </m.div>
 
       <div
         ref={stageRef}
-        className="absolute inset-0 touch-pan-y"
+        className="absolute inset-0 touch-none"
         onClick={(event) => event.target === event.currentTarget && close()}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -184,7 +204,7 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
             className="absolute inset-0 m-auto"
             style={{ width: frame.width, height: frame.height }}
           >
-            <m.div className="absolute inset-0" style={{ x: dragX }}>
+            <m.div className="absolute inset-0" style={{ x: dragX, y: dragY }}>
               {/* The tile's image is already cached, so it shows at once while the large one loads. */}
               <Photo slug={photo.slug} alt="" fill sizes={thumbSizes(photo)} className="object-cover" />
               <Photo
@@ -210,7 +230,7 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
       </div>
 
       <div ref={chromeRef} className="pointer-events-none absolute inset-0 opacity-0">
-        <div className="flex items-center justify-between px-5 pt-4 md:px-10 md:pt-6">
+        <div className="flex items-center justify-between px-5 pt-[max(1rem,env(safe-area-inset-top))] md:px-10 md:pt-6">
           <p className="eyebrow tabular-nums text-ivory/80" aria-hidden="true">
             {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
           </p>
@@ -228,7 +248,7 @@ export function Lightbox({ photos, startIndex, origin, getTileRect, thumbSizes, 
         </div>
 
         {count > 1 && (
-          <div className="absolute inset-x-0 bottom-6 flex justify-center gap-4 md:inset-y-0 md:items-center md:justify-between md:px-8">
+          <div className="absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] flex justify-center gap-4 md:inset-y-0 md:items-center md:justify-between md:px-8">
             <NavButton label="Previous photo" onClick={() => go(-1)} flip />
             <NavButton label="Next photo" onClick={() => go(1)} />
           </div>

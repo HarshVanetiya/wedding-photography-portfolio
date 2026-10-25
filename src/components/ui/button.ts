@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-xs font-medium uppercase tracking-[var(--tracking-button)] transition-colors duration-300 ease-out-quint";
+  "inline-flex items-center justify-center gap-3 rounded-full px-8 py-4 text-xs font-medium uppercase tracking-[var(--tracking-button)] transition-[color,background-color,border-color,scale] duration-300 ease-out-quint active:scale-[0.97]";
 
 const variants = {
   /** Dark pill on light backgrounds (primary action). */

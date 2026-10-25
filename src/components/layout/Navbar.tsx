@@ -12,10 +12,20 @@ export function Navbar() {
   // Pages that open with a full-bleed photo get a transparent navbar until scrolled.
   const hasHero = pathname === "/" || pathname.startsWith("/stories/");
   const [scrolled, setScrolled] = useState(false);
+  const [tucked, setTucked] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      // Phones: give photos the full screen while reading down; any scroll up brings the bar back.
+      if (Math.abs(y - lastY) > 8) {
+        setTucked(y > lastY && y > 320);
+        lastY = y;
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -27,12 +37,13 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 border-b transition-[background-color,color,border-color] duration-500 ease-out-quint",
+          "fixed inset-x-0 top-0 z-40 border-b transition-[background-color,color,border-color,translate] duration-500 ease-out-quint",
+          tucked && !menuOpen && "max-md:-translate-y-full",
           solid ? "border-line bg-ivory/90 text-ink backdrop-blur-md" : "on-photo border-transparent bg-transparent text-ivory",
         )}
       >
         <nav aria-label="Main" className="container-page flex h-18 items-center justify-between">
-          <Link href="/" className="font-serif text-xl tracking-[0.24em] uppercase">
+          <Link href="/" className="tap-target font-serif text-xl tracking-[0.24em] uppercase">
             {site.name}
           </Link>
 

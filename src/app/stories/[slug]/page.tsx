@@ -43,14 +43,14 @@ export default async function StoryPage({ params }: PageProps<"/stories/[slug]">
 
   return (
     <>
-      <section className="relative h-[88svh] min-h-[32rem] overflow-hidden bg-maroon-deep text-ivory">
+      <section data-hide-enquire className="relative h-[88svh] min-h-[32rem] overflow-hidden bg-maroon-deep text-ivory">
         <div className="absolute inset-0 animate-[kenburns_10s_var(--ease-out-quint)_both]">
           <Photo
             slug={story.cover}
             fill
             loading="eager"
             fetchPriority="high"
-            sizes="100vw"
+            sizes="(max-width: 767px) 80vw, 100vw"
             className="object-cover object-(--pos-mobile) md:object-(--pos-desktop)"
             style={
               {
@@ -72,19 +72,19 @@ export default async function StoryPage({ params }: PageProps<"/stories/[slug]">
         </div>
       </section>
 
-      <section aria-label="About this story" className="bg-ivory py-24 md:py-32">
+      <section aria-label="About this story" className="bg-ivory py-16 md:py-32">
         <Reveal className="container-page max-w-3xl text-center">
           <p className="eyebrow text-ink-muted">The Story</p>
           <p className="mt-8 font-serif text-[clamp(1.6rem,3vw,2.4rem)] leading-snug font-light">{story.intro}</p>
         </Reveal>
       </section>
 
-      <section aria-label="Photographs" className="bg-ivory px-1 pb-28 md:px-10 md:pb-40">
+      <section aria-label="Photographs" className="bg-ivory px-1 pb-20 md:px-10 md:pb-40">
         <StoryGallery slugs={story.photos} />
-        <div className="mt-16 text-center md:mt-24">
+        <div className="mt-12 text-center md:mt-24">
           <Link
             href="/#stories"
-            className="eyebrow inline-flex items-center gap-2 border-b border-ink/25 pb-1.5 transition-colors duration-300 hover:border-maroon hover:text-maroon"
+            className="eyebrow tap-target inline-flex items-center gap-2 border-b border-ink/25 pb-1.5 transition-colors duration-300 hover:border-maroon hover:text-maroon"
           >
             <span aria-hidden="true">←</span> All stories
           </Link>
@@ -106,7 +106,7 @@ function NextStory({ story }: { story: Story }) {
         slug={story.cover}
         alt=""
         fill
-        sizes="100vw"
+        sizes="(max-width: 767px) 80vw, 100vw"
         className="object-cover object-(--pos-mobile) transition-transform duration-[1600ms] ease-out-quint group-hover:scale-[1.04] md:object-(--pos-desktop)"
         style={
           {

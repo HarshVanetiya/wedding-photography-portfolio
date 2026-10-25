@@ -10,7 +10,7 @@ const ROW_HEIGHTS: [minWidth: number, rowHeight: number][] = [
   [1024, 304],
   [768, 240],
   [640, 192],
-  [0, 144],
+  [0, 160],
 ];
 
 /** Rows stretch up to ~1.5× their target height to fill the line. */
@@ -43,7 +43,7 @@ export function JustifiedGallery({ slugs, label, footer }: JustifiedGalleryProps
       <ul
         ref={listRef}
         aria-label={label}
-        className="flex flex-wrap gap-1 [--row-h:144px] sm:[--row-h:192px] md:[--row-h:240px] lg:[--row-h:304px] 2xl:[--row-h:368px]"
+        className="flex flex-wrap gap-1 [--row-h:160px] sm:[--row-h:192px] md:[--row-h:240px] lg:[--row-h:304px] 2xl:[--row-h:368px]"
       >
         {photos.map((photo, i) => {
           const ratio = photo.width / photo.height;
